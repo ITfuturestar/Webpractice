@@ -1,0 +1,205 @@
+练习.css
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+.inner-too{
+    width: 100%;
+    height: 70px;
+}
+.inner-head{
+    width: 80%;
+    height: 70px;
+    margin: 0 auto;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+.f-p{
+    margin-top: 15px;
+}
+.span-1{
+    background: #6AA747;
+    font-size: 24px;
+}
+.span-2{
+    background: #FDD95F;
+    font-size: 20px;
+}
+.f-p1{
+    margin-left: 40px;
+    margin-top: 20px;
+}
+.f-p2{
+    margin-top: 25px;
+    margin-left: 10px;
+}
+.right p  a{
+    text-decoration: none;
+    font-size: 14px;
+    color: #000000;
+}
+.right p{
+    margin-left: 40px;
+    margin-top: 20px;
+}
+.jiaoyu-box img{
+    width: 100%;
+}
+.tuijian-box{
+    width: 100%;
+    height: 500px;
+    background: #F5F5F5;
+    overflow: hidden;
+}
+.f-p3{
+    font-weight: bolder;
+    font-size: 18px;
+    margin-bottom: 30px;
+    text-align: center;
+    margin-top: 80px;
+}
+.f-p4{
+    font-weight: bolder;
+    font-size: 14px;
+    text-align: center;
+}
+.box-1{
+    width: 80%;
+    margin: 40px auto;
+}
+.box-2{
+    margin-right: 20px;
+}
+.jiaoyu-p{
+    font-size: 12px;
+    color: #497185;
+    text-align: center;
+    font-weight: bolder;
+}
+.jiaoxue-box1{
+    width: 100%;
+    background: #92C47D;
+}
+.clear{
+    clear: both;
+}
+.box-3{
+    width: 100px;
+    height: 30px;
+    background: #ffffff;
+    text-align: center;
+    font-size: 12px;
+    margin-top: 0px;
+}
+.box-5{
+    width: 15%;
+    margin: 30px auto;
+}
+.box-4{
+    width: 100px;
+    height: 30px;
+    background: #EEC331;
+    display: inline-block;
+    text-align: center;
+    font-size: 12px;
+    margin: 0 auto;
+}
+.color{
+    color: #ffffff;
+    text-align: center;
+}
+.f-p5{
+    font-size: 30px;
+    margin-top: 30px;
+}
+.f-p6{
+    font-size: 12px;
+    margin-top: 30px;
+}
+.box-6{
+    width: 40%;
+    border-top: 1px solid #ffffff;
+    margin: 20px auto;
+    font-size: 12px;
+    color: #ffffff;
+}
+.f-p7{
+    width: 100px;
+    height: 20px;
+    border: 1px solid #ffffff;
+    margin: 0 auto 10px;
+}
+a{
+    text-decoration: none;
+}
+.wenti-box{
+    width: 100%;
+    height: 350px;
+    background: #FEE157;
+}
+.wenti-box1{
+    width: 80%;
+    margin: 0 auto;
+}
+.wenti-p{
+    font-weight: bolder;
+    margin-top: 30px;
+}
+.wenti-box2{
+    width: 70%;
+    border: 1px solid #cccccc;
+}
+.wenti-box2 p{
+    width: 86%;
+    color: #7C703F;
+    font-size: 14px;
+    margin-left: 15px;
+    border-bottom: 1px solid #cccccc;
+}
+.wenti-p1{
+    margin-right: 90px;
+}
+.right-box{
+    width: 270px;
+    border: 1px solid #cccccc;
+}
+.right-box p{
+    text-align: center;
+    font-size: 14px;
+}
+.right-box-span{
+    color: red;
+}
+input{
+    width: 200px;
+    height: 20px;
+    border: none;
+}
+button{
+    width: 80px;
+    height: 25px;
+    background: #636666;
+    border: none;
+    color: #ffffff;
+    display: block;
+    float: left;
+    margin-bottom: 15px;
+}
+.bottom-box{
+    width: 100%;
+    background: #414B4A;
+    color: #ffffff;
+    text-align: center;
+    font-size: 14px;
+}
+.bottom-p span{
+    margin-right: 15px;
+}
