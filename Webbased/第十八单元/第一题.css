@@ -1,0 +1,316 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+.home-banner-box{
+    width: 91%;
+    margin: 0 auto;
+}
+.home-banner-box img{
+    width: 100%;
+}
+.site-topbar{
+    position: relative;
+    height: 40px;
+    font-size: 12px;
+    color: #b0b0b0;
+    background: #333333;
+    margin-top: -5px;
+}
+.container {
+    width: 1226px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.site-topbar .topbar-nav {
+    float: left;
+    height: 40px;
+    line-height: 40px;
+    overflow: hidden;
+}
+a{
+    text-decoration: none;
+}
+.site-topbar a {
+    color: #b0b0b0;
+}
+.topbar-nav{
+    margin-left: 75px;
+}
+.site-topbar .topbar-cart{
+    width: 120px;
+    margin-left: 15px;
+}
+.site-topbar .cart-mini {
+    position: relative;
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #b0b0b0;
+    background: #424242;
+}
+.site-topbar .cart-mini i {
+    margin-right: -5px;
+    font-size: 27px;
+    vertical-align: -4px;
+}
+.site-topbar .topbar-info {
+    line-height: 40px;
+}
+.site-topbar .topbar-cart, .site-topbar .topbar-info {
+    position: relative;
+    float: right;
+    _display: inline;
+    height: 40px;
+}
+.topbar-cart {
+    margin-right: 75px;
+}
+.site-topbar .topbar-info .link {
+    padding: 0 5px;
+    text-align: center;
+}
+.site-topbar .topbar-info .sep {
+    margin: 0;
+}
+.site-header {
+    position: relative;
+    z-index: 20;
+    height: 100px;
+}
+.site-header .header-logo {
+    float: left;
+    width: 62px;
+    margin-top: 22px;
+}
+.site-header .header-nav {
+    float: left;
+    width: 850px;
+}
+.site-header .nav-list {
+    position: relative;
+    z-index: 10;
+    float: left;
+    width: 820px;
+    height: 88px;
+    margin: 0;
+    padding: 12px 0 0 30px;
+    list-style-type: none;
+    font-size: 16px;
+}
+.site-header .nav-category {
+    position: relative;
+    float: left;
+    width: 127px;
+    padding-right: 15px;
+}
+.site-header .nav-category .link-category {
+    visibility: hidden;
+}
+.site-header .nav-category .link-category {
+    display: block;
+    padding: 26px 0 38px;
+    text-align: right;
+    color: #333;
+}
+.site-category {
+    display: block;
+}
+.site-category {
+    position: absolute;
+    top: 88px;
+    left: -92px;
+    z-index: 21;
+    width: 234px;
+    height: 460px;
+    font-size: 14px;
+}
+.site-category-list {
+    height: 420px;
+    border: 0;
+    color: #fff;
+    background: rgba(0,0,0,0.6);
+}
+.site-category-list {
+    margin: 0;
+    padding: 20px 0;
+    list-style-type: none;
+}
+.home-right-bar {
+    position: fixed;
+    bottom: 70px;
+    right: 0;
+    z-index: 999999;
+}
+.site-category-list .title{
+    color: #fff;
+}
+.site-category-list .title {
+    position: relative;
+    display: block;
+    padding-left: 30px;
+    height: 42px;
+    line-height: 42px;
+}
+.site-category-list .title i {
+    position: absolute;
+    top: 12px;
+    right: 20px;
+    font-size: 16px;
+    line-height: 16px;
+    color: #e0e0e0;
+}
+.site-header .nav-item {
+    float: left;
+}
+.site-header .nav-item .link {
+    display: block;
+    padding: 26px 10px 38px;
+    color: #333;
+}
+.site-header .header-search {
+    float: right;
+    width: 296px;
+    margin-top: 25px;
+}
+.site-header .search-form {
+    position: relative;
+    width: 296px;
+    height: 50px;
+}
+.site-header .search-text {
+    position: absolute;
+    top: 0;
+    right: 51px;
+    z-index: 1;
+    width: 223px;
+    height: 48px;
+    padding: 0 10px;
+    border: 1px solid #e0e0e0;
+    font-size: 14px;
+    line-height: 48px;
+    outline: 0;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+}
+.site-header .search-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 2;
+    width: 37px;
+    height: 36px;
+    border: 1px solid #e0e0e0;
+    font-size: 24px;
+    line-height: 24px;
+    background: #fff;
+    color: #616161;
+    outline: 0;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+    padding-top: 10px;
+    padding-left: 15px;
+}
+.icon-sousou{
+    font-size: 18px;
+}
+.home-hero {
+    position: relative;
+    margin-bottom: 26px;
+}
+.home-hero-slider {
+    position: relative;
+    height: 460px;
+    overflow: hidden;
+}
+.ui-wrapper {
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+.home-right-bar.home-right-bar-show-s428 {
+    top: 145px;
+}
+.home-right-bar.home-right-bar-show-s {
+    right: 50%;
+    width: 27px;
+    margin-right: -640px;
+}
+.home-right-bar .bar-top {
+    padding: 0;
+    margin: 0;
+    border-right: 1px solid #f5f5f5;
+    border-bottom: 1px solid #f5f5f5;
+    border-left: 1px solid #f5f5f5;
+}
+.home-right-bar .bar-s .bar-sort {
+    width: 25px;
+    height: 39px;
+}
+.home-right-bar .bar-link {
+    display: block;
+    height: 100%;
+}
+.home-right-bar .bar-s .bar-img img {
+    width: 20px;
+    height: 20px;
+}
+.home-right-bar .bar-link {
+    display: block;
+    height: 100%;
+}
+.home-right-bar .bar-s .bar-img {
+    width: 20px;
+    height: 20px;
+    padding-top: 9px;
+    margin: 0 0 0 2px;
+}
+.bar-sort{
+    border-top: 1px solid #f5f5f5;
+}
+html, body {
+    position: relative;
+    height: 100%;
+}
+.swiper-container {
+    width: 100%;
+    height: 100%;
+}
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.swiper-button-prev,
+.swiper-button-next {
+    position: absolute;
+    top: 50%;
+    width: 27px;
+    height: 30px;
+    margin-top: -22px;
+    z-index: 10;
+    cursor: pointer;
+    margin-left: 230px;
+    background-size: 27px 44px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
