@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    window.onload=function () {
+        let n,i,j,m,s;
+        for (n=100;n<=999;n++) {
+            //分解出百位
+            i = parseInt(n/100);
+            //分解出十位
+            j = parseInt(n%100/10);
+            //分解出各位
+            m = n%10;
+            s = i*i*i+j*j*j+m*m*m;
+            if(s==n){
+                console.log(n)
+            }
+        }
+    }
+</script>
+</html>
