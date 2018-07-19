@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // 不限参数个数的
+    var sum2 = function(){
+        var res = 0;
+        for(var i=arguments.length - 1;i>=0;i--){
+            res += arguments[i];
+        }
+        return res;
+    };
+    var res2 = sum2(1,2,3,4,5,6,7); // 1+2+3+4+5+6
+    console.log(res2)
+</script>
+</html>

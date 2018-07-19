@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 600px;
+            background: #EEEEEE;
+        }
+        .text{
+            width: 180px;
+            height: 30px;
+            border-radius: 5px;
+            border: none;
+            border: 1px solid #ccc;
+            margin-left: 15px;
+        }
+        textarea{
+            max-width: 560px;
+            max-height: 80px;
+            min-width: 560px;
+            min-height: 80px;
+            border: 2px solid #A4CAC1;
+            margin-left: 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+        }
+        .box button{
+            width: 120px;
+            height: 40px;
+            background: #00BFFF;
+            border-radius: 9px;
+            border: none;
+            margin-left: 450px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+        .oDiv{
+            width: 570px;
+            height: 40px;
+            background: #E3EAEC;
+            margin-left: 15px;
+            margin-top: 15px;
+        }
+        .oDiv-1{
+            width: 100px;
+            height: 30px;
+            background: #fff;
+            margin-left: 15px;
+            position: relative;
+            line-height: 30px;
+            text-align: center;
+            top: 10px;
+        }
+        .oDiv-2{
+            margin-top: 20px;
+        }
+        .oDiv button{
+            float: right;
+            margin-right: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <p style="margin-left: 15px;padding: 15px 0 0 0">来，说说你在做什么，想什么</p>
+        <input type="text" class="text">
+        <textarea></textarea>
+        <button id="but">发布</button>
+    </div>
+    <div class="oDiv">
+        <div class="oDiv-1">大家在说</div>
+    </div>
+</body>
+<script>
+    let box = document.getElementsByClassName("box")[0];
+    let text = box.getElementsByClassName("text")[0];
+    let textarea = document.getElementsByTagName("textarea");
+    let but = document.getElementById("but");
+    let oDiv = document.getElementsByClassName("oDiv")[0];
+    but.onclick=()=>{
+        let div = document.createElement("div");
+        let span = document.createElement("sapn");
+        let span1 = document.createElement("sapn");
+        let button = document.createElement("button");
+        let p = document.createElement("p");
+        div.className = "oDiv-2";
+        span.innerHTML =text.value+"：";
+        span1.innerHTML = textarea.value;
+        button.innerHTML = "删除";
+        p.innerHTML = new Date().toLocaleString();
+        div.appendChild(span);
+        div.appendChild(span1);
+        div.appendChild(button);
+        div.appendChild(p);
+        oDiv.appendChild(div);
+    }
+    oDiv.onclick=(ev)=>{
+        let Event = ev || event;
+        let target = Event.target || Event.srcElement;
+        if (target.nodeName == "BUTTON" && target.innerHTML == '删除'){
+            let d = target.parentNode;
+            console.log(d)
+            oDiv.removeChild(d);
+        }
+    }
+</script>
+</html>

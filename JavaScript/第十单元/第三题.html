@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="点击显示隐藏">
+    <div></div>
+</body>
+<script>
+    let but = document.body.children[0];
+    let box = document.body.children[1];
+    but.onclick=()=>{
+        if (box.style.display==="none"){
+            box.style.display="block";
+        }else {
+            box.style.display="none";
+        }
+    }
+</script>
+</html>

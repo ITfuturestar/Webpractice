@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<span id="time"></span>
+</body>
+<script>
+    let date =+ new Date("2018,7,8 2:30:30");
+    function trime() {
+        let date1 =+ new Date();
+        let s = parseInt((date-date1)/1000);
+        let h = parseInt(s/3600);
+            s%=3600;
+        let m = parseInt(s/60);
+            s%=60;
+        document.getElementById("time").innerHTML=`距离下课还有${h}小时${m}`;
+    }
+    trime()
+</script>
+</html>

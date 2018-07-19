@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function num(n,m) {
+        return parseInt(n+Math.random()*(m-n));
+    }
+    function findInArr(arr,arr1) {
+        for (let i=0;i<arr.length;i++) {
+            if (arr[i]==arr1) {
+                return true;
+            }
+        }
+        return false;
+    }
+    let arr = [];
+    while (arr.length<16){
+        let arr1 = num(2,18);
+        if (!findInArr(arr,arr1)) {
+            arr.push(arr1);
+        }
+    }
+    document.write(arr)
+</script>
+</html>

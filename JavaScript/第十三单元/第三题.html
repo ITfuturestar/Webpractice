@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+        .box{
+            width: 400px;
+            height: 290px;
+            border: 1px solid #ccc;
+            margin: 20px 20px;
+        }
+        .oul{
+            width: 180px;
+            height: 290px;
+            border-right: 1px solid #ccc;
+            list-style: none;
+            float: left;
+        }
+        li{
+            border-bottom: 1px solid #ccc;
+            padding: 15px 15px;
+        }
+        span{
+            font-size: 14px;
+        }
+        .oul li:nth-child(4){
+            border-bottom: none;
+        }
+        .box1{
+            width: 219px;
+            height: 290px;
+            float: right;
+            display: none;
+            background: #EEF6FD;
+        }
+        .box1 div{
+            width: 219px;
+            height: 290px;
+            display: none;
+        }
+        .oul li:hover{
+            background: #ccc;
+        }
+        .oul li h4:hover{
+            color: #FF1493;
+        }
+        .active{
+            background: #EEF6FD;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul class="oul">
+            <li>
+                <h4>咪咕音乐</h4>
+                <span>放四天 取得是</span>
+            </li>
+            <li>
+                <h4>咪咕游戏</h4>
+                <span>放四天 取得是</span>
+            </li>
+            <li>
+                <h4>咪咕月度</h4>
+                <span>放四天 取得是</span>
+            </li>
+            <li>
+                <h4>咪咕圈圈</h4>
+                <span>放四天 取得是</span>
+            </li>
+        </ul>
+        <div class="box1">
+            <div style="display: block;">1111</div>
+            <div>2222</div>
+            <div>3333</div>
+            <div>4444</div>
+        </div>
+    </div>
+</body>
+<script>
+    let ali = document.getElementsByTagName("li");
+    let box = document.getElementsByClassName("box1")[0];
+    let box1 = document.getElementsByClassName("box1")[0].children;
+    for (let i=0;i<ali.length;i++) {
+        ali[i].index=i;
+        ali[i].onmousemove=function(){
+            for (let i=0;i<ali.length;i++){
+                box1[i].style.display="none";
+            }
+            box1[this.index].style.display="block";
+            box.style.display="block";
+        }
+        ali[i].onmouseout=function(){
+            box.style.display="none";
+        }
+    }
+</script>
+</html>

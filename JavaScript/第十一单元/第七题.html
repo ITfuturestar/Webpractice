@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+        }
+        #div2{
+            width: 100px;
+            height: 100px;
+            background: blue;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -50px;
+            margin-top: -50px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+    <div id="div2"></div>
+</body>
+<script>
+    window.onload=()=>{
+        let oDiv = document.getElementById("div1");
+        let oDiv2 = document.getElementById("div2");
+        let disx = 0;
+        let disy = 0;
+        oDiv.onmousedown=(ev)=>{
+            let Event = ev || window.event;
+            disx = Event.clientX - oDiv.offsetLeft;
+            disy = Event.clientY - oDiv.offsetTop;
+            document.onmousemove=(ev)=>{
+                let Event = ev || window.event;
+                /*
+                    当div1在div2的上边线(top2)以上的区域活动时，始终碰不上
+                    当div1在div2的右边线(right2)以右的区域活动时,始终碰不上
+                    当div1在div2的下边线(bottom2)以下的区域活动时,始终碰不上
+                    当div1在div2的左边线(left2)以左的区域活动时,始终碰不上
+                */
+                let top1 = oDiv.offsetTop;
+                let left1 = oDiv.offsetLeft;
+                let right1 = oDiv.offsetLeft+oDiv.offsetWidth;
+                let bottom1 = oDiv.offsetTop+oDiv.offsetHeight;
+
+                let top2 = oDiv2.offsetTop;
+                let left2 = oDiv2.offsetLeft;
+                let right2 = oDiv2.offsetLeft+oDiv2.offsetWidth;
+                let bottom2 = oDiv2.offsetTop+oDiv2.offsetHeight;
+                if (bottom1<top2 || left1>right2 || top1>bottom2 || right1<left2) {//表示没碰上
+                    oDiv2.style.background="blue";
+                }else {
+                    oDiv2.style.background="green";
+                }
+                oDiv.style.left = Event.clientX - disx +"px";
+                oDiv.style.top = Event.clientY - disy + "px";
+            }
+            document.onmouseup=()=>{
+                document.onmousemove = null;
+                document.onmouseup = null;
+            }
+            return false;
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            margin-top: 20px;
+        }
+        .box div{
+            line-height: 200px;
+            text-align: center;
+            display: none;
+        }
+        .box div:nth-child(1){
+            background: red;
+        }
+        .box div:nth-child(2){
+            background: blue;
+        }
+        .box div:nth-child(3){
+            background: green;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="选向一">
+    <input type="button" value="选向二">
+    <input type="button" value="选向三">
+    <div class="box">
+        <div>1111</div>
+        <div>2222</div>
+        <div>3333</div>
+    </div>
+</body>
+<script>
+    let abtn = document.getElementsByTagName("input");
+    let aDiv = document.getElementsByTagName("div")[0].children;
+    for (let i=0;i<abtn.length;i++) {
+        (function (index) {
+            abtn[index].onclick=function () {
+                for (let j=0;j<abtn.length;j++){
+                    aDiv[j].style.display="none";
+                }
+                aDiv[index].style.display="block";
+            }
+        })(i);
+    }
+</script>
+</html>

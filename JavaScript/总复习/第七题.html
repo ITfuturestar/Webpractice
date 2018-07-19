@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #table{
+            width: 700px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>姓名：</td>
+            <td><input id="name" type="text" placeholder="请输入姓名"></td>
+        </tr>
+        <tr>
+            <td>年龄：</td>
+            <td><input type="text" id="age"></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="button" value="添加信息" id="add">
+                <input type="button" value="取消" id="cancel">
+                <input type="button" value="全部删除" onclick="checkAll()">
+            </td>
+        </tr>
+    </table>
+    搜索：<input type="text">
+    <input type="button" value="搜索">
+    <table border="1px" cellspacing="0" id="table">
+        <tr>
+            <td>
+                <input type="button" value="全选" id="checkbox">
+                <input type="button" value="删除" onclick="checkAll()">
+            </td>
+            <td>姓名</td>
+            <td>年龄</td>
+            <td>添加时间</td>
+            <td>操作</td>
+        </tr>
+    </table>
+</body>
+<script>
+    let name = document.getElementById("name");
+    let age = document.getElementById("age");
+    let add = document.getElementById("add");
+    let table = document.getElementById("table");
+    let checkbox = document.getElementById("checkbox");
+    let hobby = document.getElementsByName("hobby");
+    let cancel = document.getElementById("cancel");
+    //添加信息
+    add.onclick=()=>{
+        if (name.value == "" &&  age.value=="") return  alert("信息不能为空");
+        let tr = document.createElement("tr");
+        for (let i=0;i<table.children[0].children[0].children.length;i++){
+            let td = document.createElement("td");
+            switch (i){
+                case 0:
+                    td.innerHTML = "<input type='checkbox' name='hobby'>";
+                    break;
+                case 1:
+                    td.innerHTML = name.value;
+                    break;
+                case 2:
+                    td.innerHTML = age.value;
+                    break;
+                case 3:
+                    td.innerHTML = new Date().toLocaleString();
+                    break;
+                case 4:
+                    td.innerHTML = "<input type='button' value='删除' class='edit'>";
+                    break;
+            }
+            tr.appendChild(td);
+        }
+        table.appendChild(tr);
+    }
+    //全选
+    let checked = false;
+    checkbox.onclick = ()=>{
+        checked =! checked;
+        hobby.forEach((val)=>{
+            val.checked = checked;
+        });
+    }
+    //删除/全部删除
+    function checkAll() {
+        for (let i=0;hobby.length;i++) {
+            if (hobby[i].checked==true) {
+                let tr = hobby[i].parentNode.parentNode;
+                table.removeChild(tr);
+                i--;
+                hobby.length--;
+            }
+        }
+    }
+    table.onclick=(ev)=>{
+        let Event = ev || event;
+        let target = Event.target || Event.srcElement;
+        if (target.className == "edit"){
+            let tr = target.parentNode.parentNode;
+            table.removeChild(tr);
+        }
+    }
+    //取消
+    cancel.onclick=()=>{
+        name.value = "";
+        age.value = "";
+    }
+</script>
+</html>

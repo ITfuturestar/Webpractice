@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="p1"></p>
+<canvas id="mycanvas" width="1000" height="800">当前浏览器不支持canvas</canvas>
+</body>
+<script>
+    // 结合setInterval制作动画
+
+    // 基本原理就是定时清除整个canvas重新绘制
+
+    // 小球在矩形区域移动，碰到矩形区域的边缘反弹
+
+    function draw() {
+        var canvas = document.getElementById("mycanvas");
+        if (canvas == null)
+            return false;
+
+        var context = canvas.getContext("2d");
+
+        var interal = setInterval(function () {
+            move(context);
+        }, 1);
+    }
+
+    var x = 100;  //矩形开始坐标
+    var y = 100;  //矩形结束坐标
+    var mx = 0;   //0右1左
+    var my = 0;   //0下1上
+    var ml = 1;   //每次移动长度
+    var r = 20;   //小球半径
+    var cw = 400; //canvas宽度
+    var ch = 300; //canvas高度
+
+
+    function move(context) {
+        context.clearRect(0, 0, 400, 300);
+
+        context.fillStyle = "#EEEEFF";
+        context.fillRect(0, 0, 400, 300);
+        context.fillStyle = "blue";
+
+        context.beginPath();
+        context.arc(x,y,r, 0, Math.PI * 2,true);
+        context.fillStyle = 'rgba(255,0,0,0.8)';
+        context.closePath();
+        context.fill();
+
+        if (mx == 0) {
+            x = x + ml;
+            if (x >= cw-r) {
+                mx = 1;
+            }
+        }
+        else {
+            x = x - ml;
+            if (x <= 20) {
+                mx = 0;
+            }
+        }
+        if (my == 0) {
+            y = y + ml;
+            if (y >= ch-r) {
+                my = 1;
+            }
+        }
+        else {
+            y = y - ml;
+            if (y <= 20) {
+                my = 0;
+            }
+        }
+
+    }
+
+    window.onload=draw;
+</script>
+</html>

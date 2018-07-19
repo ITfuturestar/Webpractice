@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let time = 3;
+    let timer = setInterval("daojishi()",1000);
+    function daojishi() {
+        time--;
+        if(time <= 0){
+            alert("发射")
+            clearInterval(timer)
+        }
+    }
+</script>
+</html>

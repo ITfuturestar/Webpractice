@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        textarea{
+            display: inline-block;
+            max-width: 120px;
+            max-height: 120px;
+            min-width: 120px;
+            min-height: 120px;
+            border: 1px solid #ccc;
+        }
+        li{
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    姓名：<input type="text" id="name"><br/>
+    内容：<textarea id="content"></textarea>
+    <input type="button" value="提交" onclick="tijiao()">
+    <h2>显示留言</h2>
+    <ul id="ul"></ul>
+</body>
+<script>
+    let name = document.getElementById("name");
+    let content = document.getElementById("content");
+    let ul = document.getElementById("ul");
+    function tijiao() {
+        let li = document.createElement("li");
+
+        li.innerHTML=name.value+"<br/>"+content.value+"<button onclick='remove(this)'>删除</button>";
+        if (ul.children.length == 0) ul.appendChild(li);
+        else ul.insertBefore(li,ul.children[0]);
+        name.value = "";
+        content.value = "";
+    }
+    function remove(obj) {
+        let ul = obj.parentNode.parentNode;
+        ul.removeChild(obj.parentNode);
+    }
+</script>
+</html>

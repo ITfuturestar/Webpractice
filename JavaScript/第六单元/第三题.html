@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="checkbox"><br/>
+    <input type="checkbox"><br/>
+    <input type="checkbox"><br/>
+    <input type="checkbox">
+    <input type="button" value="全选" onclick="checkall()">
+    <input type="button" value="取消全选" onclick="clearall()">
+    <input type="button" value="反选" onclick="selected()">
+</body>
+<script>
+    function checkall() {
+        let hobby = document.getElementsByTagName("input");
+        for (let i = 0;i<hobby.length;i++){
+            hobby[i].checked=true;
+        }
+    }
+    function clearall() {
+        let hobby = document.getElementsByTagName("input");
+        for (let i = 0;i<hobby.length;i++) {
+            hobby[i].checked=false;
+        }
+    }
+    function selected() {
+        let hobby = document.getElementsByTagName("input");
+        for (let i=0;i<hobby.length;i++){
+            if (hobby[i].checked==true) {
+                hobby[i].checked=false;
+            }else{
+                hobby[i].checked=true;
+            }
+        }
+    }
+</script>
+</html>

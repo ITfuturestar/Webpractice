@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 90px;
+            height: 40px;
+            background: #FF0000;
+            text-align: center;
+            font-size: 25px;
+            padding-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <input type="text" placeholder="请输入上图的验证码" id="text">
+    <input type="button" value="注册">
+</body>
+<script>
+    let box = document.getElementById("box");
+    let text = document.getElementById("text");
+    function code() {
+        let code = "";
+        let codeLenght = 4;
+        let random = [0,1,2,3,4,5,6,7,8,9];
+        for (let i=0;i<codeLenght;i++) {
+            let index = Math.floor(Math.random()*random.length);
+            code += random[index];
+        }
+        box.innerHTML=code;
+    }
+    function codeWord() {
+        let code1 = "";
+        let codeLenght1 = 4;
+        let random1 = ['A', 'B', 'C', 'D', 'E','F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+                        'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+                        'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p',
+                        'q','r','s','t','u','v','w','x','y','z'];
+        for (let i=0;i<codeLenght1;i++){
+            let index1 = Math.floor(Math.random()*random1.length);
+            code1 += random1[index1];
+        }
+        box.innerHTML=code1;
+    }
+    code();
+    codeWord();
+    setInterval(function () {
+        code();
+    },1000);
+</script>
+</html>

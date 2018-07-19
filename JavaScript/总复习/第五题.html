@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #table tr{
+            margin-bottom: 10px;
+            display: block;
+        }
+        #table1{
+            width: 400px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <table cellspacing="0" id="table">
+        <tr>
+            <td>用户名：</td>
+            <td><input type="text" id="name"></td>
+        </tr>
+        <tr>
+            <td colspan="2" id="td1">6-12位字母、数字、下划线、组成</td>
+        </tr>
+        <tr>
+            <td>密码：</td>
+            <td><input type="text" id="pass"></td>
+        </tr>
+        <tr>
+            <td colspan="2" id="td2">6-12位字母、数字组成</td>
+        </tr>
+        <tr>
+            <td>确认密码：</td>
+            <td><input type="text" id="pass1"></td>
+        </tr>
+        <tr>
+            <td colspan="2" id="td3">两次密码输入一致</td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="button" value="添加" id="add"></td>
+        </tr>
+    </table>
+    <table border="1px" cellspacing="0" id="table1">
+        <tr>
+            <td>用户名</td>
+            <td>密码</td>
+            <td>登记时间</td>
+            <td>操作</td>
+        </tr>
+    </table>
+</body>
+<script>
+    let name = document.getElementById("name");
+    let pass = document.getElementById("pass");
+    let pass1 = document.getElementById("pass1");
+    let add = document.getElementById("add");
+    let table1 = document.getElementById("table1");
+    add.onclick=()=>{
+        if (uname_ok && pwd_ok && confirm_pwd_ok){
+            let tr = document.createElement("tr");
+            for (let i=0;i<table1.children[0].children[0].children.length;i++){
+                let td = document.createElement("td")
+                switch (i) {
+                    case 0:
+                        td.innerHTML = name.value;
+                        break;
+                    case 1:
+                        td.innerHTML = pass.value;
+                        break;
+                    case 2:
+                        td.innerHTML = pass1.value;
+                        break;
+                    case 3:
+                        td.innerHTML = "<input type='button' value='删除' class='edit'>";
+                }
+                tr.appendChild(td);
+            }
+            table1.appendChild(tr);
+        }
+    }
+
+    //删除
+    table1.onclick=(ev)=>{
+        let Event = ev || event;
+        let target = Event.target || Event.srcElement;
+        if (target.className == "edit"){
+            let tr = target.parentNode.parentNode;
+            table1.removeChild(tr);
+        }
+    }
+
+
+    //昵称
+    let uname_reg = /^[\u4e00-\u9fa5]{4,20}$|^[\dA-Za-z_\-]{4,20}$/;
+    let uname_ok = false;
+    let td1 = document.getElementById("td1");
+    name.onblur=function () {
+        if (name.value == "") {
+            td1.style.color="red";
+            name.style.border="1px solid red";
+            uname_ok = false;
+        }else if (name.value.length<8 || name.value.length>16){
+            td1.style.color="red";
+            name.style.border="1px solid red";
+            uname_ok = false;
+        }else if (!name.value.match(uname_reg)) {
+            td1.style.color="red";
+            name.style.border="1px solid red";
+            uname_ok = false;
+        }else {
+            td1.style.color="#000";
+            name.style.border="1px solid #000";
+            uname_ok = true;
+        }
+    }
+    //密码
+    let pwd_reg = /^(?![A-Z]+$)(?![a-z]+$)(?!\d+$)(?![\W_]+$)\S{6,20}$/;
+    let pwd_ok = false;
+    let td2 = document.getElementById("td2");
+    pass.onblur=function () {
+        if (pass.value == "") {
+            td2.style.color="red";
+            pass.style.border="1px solid red";
+            pwd_ok = false;
+        }else if (pass.value.length<8 || pass.value.length>16){
+            td2.style.color="red";
+            pass.style.border="1px solid red";
+            pwd_ok = false;
+        }else if (!pass.value.match(pwd_reg)) {
+            td2.style.color="red";
+            pass.style.border="1px solid red";
+            pwd_ok = false;
+        }else {
+            td2.style.color="#000";
+            pass.style.border="1px solid #000";
+            pwd_ok = true;
+        }
+    }
+    //再次确认密码
+    let confirm_pwd_ok = false;
+    let td3 = document.getElementById("td3");
+    pass1.onblur=function () {
+        if (pass1.value == "") {
+            td3.style.color="red";
+            pass1.style.border="1px solid red";
+            confirm_pwd_ok = false;
+        }else if (pass1.value.length<8 || pass1.value.length>16){
+            td3.style.color="red";
+            pass1.style.border="1px solid red";
+            confirm_pwd_ok = false;
+        }else if (!pass1.value.match(pwd_reg)) {
+            td3.style.color="red";
+            pass1.style.border="1px solid red";
+            confirm_pwd_ok = false;
+        }else {
+            td3.style.color="#000";
+            pass1.style.border="1px solid #000";
+            confirm_pwd_ok = true;
+        }
+    }
+</script>
+</html>

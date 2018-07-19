@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background: #000;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div ></div>
+</body>
+<script>
+    let box = document.body.children[0];
+    box.onmousedown=(ev)=>{
+        let Event = ev || event;
+        let diffx = Event.clientX - box.offsetLeft;
+        document.onmousemove=(ev)=>{
+            let Event = ev || event;
+            let left = Event.clientX-diffx;
+            if (left < 0) {
+                left = 0;
+            }else if(left > window.innerWidth-box.offsetWidth){
+                left = window.innerWidth-box.offsetWidth;
+            }
+            box.style.left = left +"px";
+        }
+    }
+    document.onmouseup=()=>{
+        document.onmousemove=null;
+        document.onmouseup=null;
+    }
+</script>
+</html>

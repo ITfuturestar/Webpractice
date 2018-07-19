@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+            width: 300px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <table border="1px" cellspacing="0">
+        <tr>
+            <td><input type="checkbox" id="checkbox">全选</td>
+            <td>姓名</td>
+            <td>年龄</td>
+            <td>性别</td>
+            <td>操作</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="hobby"></td>
+            <td>张三</td>
+            <td>26</td>
+            <td>男</td>
+            <td class="edit"><button>删除</button></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="hobby"></td>
+            <td>张三</td>
+            <td>26</td>
+            <td>男</td>
+            <td class="edit"><button>删除</button></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="hobby"></td>
+            <td>张三</td>
+            <td>26</td>
+            <td>男</td>
+            <td class="edit"><button>删除</button></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="hobby"></td>
+            <td>张三</td>
+            <td>26</td>
+            <td>男</td>
+            <td class="edit"><button>删除</button></td>
+        </tr>
+    </table>
+</body>
+<script>
+    let checkbox = document.getElementById("checkbox");
+    let hobby = document.getElementsByName("hobby");
+    let edit = document.getElementsByTagName("button");
+    let table = document.getElementsByTagName("table")[0];
+    let checked = false;
+    checkbox.onclick=()=>{
+        checked =! checked;
+        hobby.forEach((val)=>{
+            val.checked=checked;
+        })
+    }
+    table.onclick=function (ev) {
+        let Event = ev || event;
+        let target = Event.target || Event.srcElement;
+        if (target.nodeName=="BUTTON") {
+        let tr = target.parentNode.parentNode;
+        tr.parentNode.removeChild(tr);
+        }
+    }
+</script>
+</html>

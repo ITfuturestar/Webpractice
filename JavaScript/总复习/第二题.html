@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 500px;
+            background: #F2EBEB;
+            padding-top: 10px;
+            float: left;
+        }
+        .box div{
+            margin-left: 50px;
+        }
+        p{
+            font-size: 12px;
+            margin-left: 50px;
+        }
+        .code{
+            width: 80px;
+        }
+        .code-box{
+            width: 80px;
+            height: 30px;
+            background: #E1F3AB;
+            display: inline-block;
+            position: relative;
+            left: -40px;
+            line-height: 30px;
+            text-align: center;
+            font-size: 20px;
+        }
+        .but{
+            margin-left: 100px;
+            margin-top: 10px;
+            width: 130px;
+            height: 30px;
+            background: #E4A9A9;
+            border: none;
+            margin-bottom: 10px;
+        }
+        .code{
+            margin-top: 15px;
+        }
+        .box-1{
+            margin-left: 30px;
+            float: left;
+        }
+        table{
+            text-align: center;
+            width: 700px;
+        }
+        table .update{
+            width: 70px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div>
+            昵称：<input type="text" id="name">
+            <p class="p1">不能为空 长度8-16位 数字字母和下划线组成</p>
+        </div>
+        <div>
+            密码：<input type="text" id="pass">
+            <p class="p2">不能为空 长度8-16位 数字字母和下划线组成</p>
+        </div>
+        <div style="margin-left: 20px">
+            确认密码：<input type="text" id="pass1">
+            <p class="p3" style="margin-left: 80px">确认两次密码一样</p>
+        </div>
+        <div>
+            邮箱：<input type="text" id="code">
+            <p class="p4">邮箱里必须有@和字符</p>
+        </div>
+        <div style="margin-left: 34px">
+            手机号：<input type="text" id="phone">
+            <p class="p5" style="margin-left: 60px">手机号不能为空 长度11位 首字母为1</p>
+        </div>
+        <div>
+            年龄：<input type="text" id="age">
+            <p class="p6">年龄不能为空 在12-80之间</p>
+        </div>
+        <div style="margin-left: 65px">
+            省：<select id="province" onchange="isSelected(this.value);"  >
+                    <option>请选择省份</option>
+                    <option value="1">山西省</option>
+                    <option value="2">河北省</option>
+                    <option value="3">河南省</option>
+                    <option value="4">陕西省</option>
+                    <option value="5">湖北省</option>
+                    <option value="6">山东省</option>
+                    <option value="7">广东省</option>
+                </select>
+            市：<select id="city" onchange="isSelected1(this.value);">
+                    <option>请选择省份</option>
+                    <option value="1">吕梁市</option>
+                    <option value="2">邯郸市</option>
+                    <option value="3">郑州市</option>
+                    <option value="4">西安市</option>
+                    <option value="5">武汉市</option>
+                    <option value="6">济南市</option>
+                    <option value="7">广州市</option>
+                </select>
+        </div>
+        <div style="margin-left: 34px;">
+            验证码：<input type="text" class="code" id="code-ma">
+            <div class="code-box" id="code_box"></div>
+        </div>
+        <input type="button" value="立即注册" class="but" id="but">
+    </div>
+    <div class="box-1">
+        <table border="1px" id="table">
+            <tr>
+                <td><input type="checkbox" id="checkbox">全选</td>
+                <td>昵称</td>
+                <td>邮箱</td>
+                <td>手机号</td>
+                <td>年龄</td>
+                <td>省份</td>
+                <td>城市</td>
+                <td>操作</td>
+            </tr>
+        </table>
+        <input type="button" value="删除" onclick="checkall()">
+        <input type="button" value="全部删除" onclick="checkall()">
+        <input type="button" value="编辑" id="editor">
+        <input type="button" value="完成" id="complete">
+    </div>
+</body>
+<script>
+    let name = document.getElementById("name");
+    let pass = document.getElementById("pass");
+    let pass1 = document.getElementById("pass1");
+    let code = document.getElementById("code");
+    let phone = document.getElementById("phone");
+    let age = document.getElementById("age");
+    let code_ma = document.getElementById("code-ma");
+    let table = document.getElementById("table");
+    let checkbox = document.getElementById("checkbox");
+    let checkAll = document.getElementsByClassName("checkAll");
+    let code_box = document.getElementById("code_box");
+    let province = document.getElementById("province");
+    let city = document.getElementById("city");
+    let but = document.getElementById("but");
+    let hobby = document.getElementsByName("hobby");
+
+    //获取省份
+    let pName;
+    function isSelected(value) {
+        for (let i=0;i<province.length;i++){
+            if (province[i].selected==true) {
+                pName = province[i].innerHTML;
+            }
+        }
+    }
+    //获取市
+    let cityName;
+    function isSelected1(value) {
+        for (let i=0;i<city.length;i++){
+            if (city[i].selected==true) {
+                cityName = city[i].innerHTML;
+            }
+        }
+    }
+    //验证码
+    function codeWord() {
+        let code1 = "";
+        let codeLenght1 = 4;
+        let random1 = [0,1,2,3,4,5,6,7,8,9,'A', 'B', 'C', 'D', 'E','F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+            'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+            'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p',
+            'q','r','s','t','u','v','w','x','y','z'];
+        for (let i=0;i<codeLenght1;i++){
+            let index1 = Math.floor(Math.random()*random1.length);
+            code1 += random1[index1];
+        }
+        code_box.innerHTML=code1;
+    }
+    codeWord();
+
+    //立即注册
+    but.onclick=()=>{
+        if (uname_ok && pwd_ok && confirm_pwd_ok && Email_ok && phone_ok && age_ok) {
+        if (code_ma.value == code_box.innerHTML) {
+        let tr = document.createElement("tr");
+        for (let i=0;i<table.children[0].children[0].children.length;i++) {
+            let td = document.createElement("td");
+            switch (i){
+                case 0:
+                    td.innerHTML = "<input type='checkbox' name='hobby'>";
+                    break;
+                case 1:
+                    td.innerHTML = name.value;
+                    break;
+                case 2:
+                    td.innerHTML = code.value;
+                    break;
+                case 3:
+                    td.innerHTML = phone.value;
+                    break;
+                case 4:
+                    td.innerHTML = age.value;
+                    break;
+                case 5:
+                    td.innerHTML = pName;
+                    break;
+                case 6:
+                    td.innerHTML = cityName;
+                    break;
+                case 7:
+                    td.innerHTML = "<input type='button' value='删除' class='edit'>";
+                    break;
+                }
+            tr.appendChild(td);
+            }
+            table.children[0].appendChild(tr);
+        }
+        }else {
+            alert("输入错误，请重新输入");
+        }
+    }
+    //删除和全部删除
+    function checkall() {
+        for (let i=0;i<hobby.length;i++){
+            if (hobby[i].checked==true) {
+                let tr = hobby[i].parentNode.parentNode;
+                table.children[0].removeChild(tr);
+                i--;
+                hobby.length--;
+            }
+        }
+    }
+    //table中的删除
+    let edit = document.getElementsByClassName("edit");
+        table.onclick=(ev)=>{
+            let Event = ev || event;
+            let target = Event.target || Event.srcElement;
+            if (target.className == "edit") {
+                let tr = target.parentNode.parentNode;
+                table.children[0].removeChild(tr);
+            }
+        }
+    //全选
+    let checked = false;
+    checkbox.onclick = () =>{
+        checked = !checked;
+        hobby.forEach((val)=>{
+            val.checked=checked;
+        });
+    }
+
+    //编辑
+    let editor = document.getElementById("editor");
+    editor.onclick=()=>{
+        for (let i=0;i<hobby.length;i++){
+            if (hobby[i].checked){
+                let tr = hobby[i].parentNode.parentNode;
+                let atd = tr.children;
+                for (let i=1;i<atd.length-1;i++){
+                    if (atd[1].children){
+                        atd[i].innerHTML="<input type='text' class='update' value='"+atd[i].innerHTML+"'>";
+                    }
+                }
+            }
+        }
+    }
+
+    //完成
+    let complete = document.getElementById("complete");
+    complete.onclick=()=>{
+        let update = document.querySelectorAll(".update");
+        let tr = update[0].parentNode.parentNode;
+        console.log(update)
+        let atd = tr.children;
+        for (let i=0;i<update.length;i++){
+            atd[i+1].innerHTML = update[i].value;
+        }
+    }
+
+
+    //昵称
+    let uname_reg = /^[\u4e00-\u9fa5]{4,20}$|^[\dA-Za-z_\-]{4,20}$/;
+    let uname_ok = false;
+    let p1 = document.getElementsByClassName("p1")[0];
+    name.onblur=function () {
+        if (name.value == "") {
+            p1.style.color="red";
+            name.style.border="1px solid red";
+            uname_ok = false;
+        }else if (name.value.length<8 || name.value.length>16){
+            p1.style.color="red";
+            name.style.border="1px solid red";
+            uname_ok = false;
+        }else if (!name.value.match(uname_reg)) {
+            p1.style.color="red";
+            name.style.border="1px solid red";
+            uname_ok = false;
+        }else {
+            p1.style.color="#000";
+            name.style.border="1px solid #000";
+            uname_ok = true;
+        }
+    }
+    //密码
+    let pwd_reg = /^(?![A-Z]+$)(?![a-z]+$)(?!\d+$)(?![\W_]+$)\S{6,20}$/;
+    let pwd_ok = false;
+    let p2 = document.getElementsByClassName("p2")[0];
+    pass.onblur=function () {
+        if (pass.value == "") {
+            p2.style.color="red";
+            pass.style.border="1px solid red";
+            pwd_ok = false;
+        }else if (pass.value.length<8 || pass.value.length>16){
+            p2.style.color="red";
+            pass.style.border="1px solid red";
+            pwd_ok = false;
+        }else if (!pass.value.match(pwd_reg)) {
+            p2.style.color="red";
+            pass.style.border="1px solid red";
+            pwd_ok = false;
+        }else {
+            p2.style.color="#000";
+            pass.style.border="1px solid #000";
+            pwd_ok = true;
+        }
+    }
+    //再次确认密码
+    let confirm_pwd_ok = false;
+    let p3 = document.getElementsByClassName("p3")[0];
+    pass1.onblur=function () {
+        if (pass1.value == "") {
+            p3.style.color="red";
+            pass1.style.border="1px solid red";
+            confirm_pwd_ok = false;
+        }else if (pass1.value.length<8 || pass1.value.length>16){
+            p3.style.color="red";
+            pass1.style.border="1px solid red";
+            confirm_pwd_ok = false;
+        }else if (!pass1.value.match(pwd_reg)) {
+            p3.style.color="red";
+            pass1.style.border="1px solid red";
+            confirm_pwd_ok = false;
+        }else {
+            p3.style.color="#000";
+            pass1.style.border="1px solid #000";
+            confirm_pwd_ok = true;
+        }
+    }
+    //邮箱输入框
+    let Email = /^\S{6,16}\@\S{2,5}\.(com||cn)$/;
+    let Email_ok = false;
+    let p4 = document.getElementsByClassName("p4")[0];
+    code.onblur=function () {
+        if (code.value == "") {
+            p4.style.color="red";
+            code.style.border="1px solid red";
+            Email_ok = false;
+        }else if (code.value.length<8 || code.value.length>16){
+            p4.style.color="red";
+            code.style.border="1px solid red";
+            Email_ok = false;
+        }else if (!code.value.match(Email)) {
+            p4.style.color="red";
+            code.style.border="1px solid red";
+            alert(2)
+            Email_ok = false;
+        }else {
+            p4.style.color="#000";
+            code.style.border="1px solid #000";
+            Email_ok = true;
+        }
+    }
+    // 手机号码输入框获取焦点  
+    let phone_reg = /^1[3|4|5|7|8][0-9]{9}$/;
+    let phone_ok = false;
+    let p5 = document.getElementsByClassName("p5")[0];
+    phone.onblur=function () {
+        if (phone.value == "") {
+            p5.style.color="red";
+            phone.style.border="1px solid red";
+            phone_ok = false;
+        }else if (phone.value.length<8 || phone.value.length>16){
+            p5.style.color="red";
+            phone.style.border="1px solid red";
+            phone_ok = false;
+        }else if (!phone.value.match(phone_reg)) {
+            p5.style.color="red";
+            phone.style.border="1px solid red";
+            phone_ok = false;
+        }else {
+            p5.style.color="#000";
+            phone.style.border="1px solid #000";
+            phone_ok = true;
+        }
+    }
+    let age_reg = /^(?:[12]?\d|80)$/;
+    let age_ok = false;
+    let p6 = document.getElementsByClassName("p6")[0];
+    age.onblur=function () {
+        if (age.value == "") {
+            p6.style.color="red";
+            age.style.border="1px solid red";
+            age_ok = false;
+        }else if (!age.value.match(age_reg)) {
+            p6.style.color="red";
+            age.style.border="1px solid red";
+            age_ok = false;
+        }else {
+            p6.style.color="#000";
+            age.style.border="1px solid #000";
+            age_ok = true;
+        }
+    }
+</script>
+</html>

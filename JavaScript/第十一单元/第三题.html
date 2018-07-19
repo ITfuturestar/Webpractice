@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <a href="#">点击跳转</a>
+    <a href="javascript:void(0)">点击跳转</a>
+</body>
+<script>
+    let link = document.body.children[0];
+    link.onclick=()=>{
+        alert("阻止跳转");
+        return false;//给a标签的onclick事件返回false
+    }
+</script>
+</html>

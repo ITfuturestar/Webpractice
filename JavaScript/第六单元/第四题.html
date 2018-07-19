@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        span{
+            width: 80px;
+            height: 35px;
+            background: #FFC0CB;
+            display: block;
+            text-align: center;
+            padding-top: 5px;
+            font-size: 25px;
+        }
+        input{
+            width: 70px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <span id="code"></span>
+    <input type="text" id="input">
+    <button>提交</button>
+</body>
+<script>
+    let code1 = document.getElementById("code");
+    //产生验证码
+    var code;
+    function validate() {
+        code = "";
+        var codeLength = 4;//验证码长度
+        var random = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E',
+            'F', 'G', 'H', 'I', 'J', 'k', 'L', 'M', 'N', 'O', 'P', 'Q',
+            'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' ];//随机数
+        for (var i = 0; i < codeLength; i++) {//循环操作
+            var index = Math.floor(Math.random() * 36);//取得随机数的索引(0~35)
+            code += random[index];//根据索引取得随机数加到code上
+        }
+        code1.innerHTML=code;//把code赋值给验证码
+    }
+    validate();
+    window.onload=function () {
+        let input = document.getElementById("input")
+        input.onblur=function () {
+            if (input.value != code) {
+                alert("错误")
+            }else {
+                alert("正确")
+            }
+        }
+    }
+
+</script>
+</html>

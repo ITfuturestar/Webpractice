@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<span id="showtime"></span>
+</body>
+<script>
+    let date =+new Date(1994,5,1);
+    function trime() {
+        let date1 =+new Date();
+        let s = parseInt((date1-date)/1000);
+        let d = parseInt(s/86400);
+            s%=86400;
+        document.getElementById("showtime").innerHTML= `一共活了${d}天`;
+    }
+    trime();
+</script>
+</html>

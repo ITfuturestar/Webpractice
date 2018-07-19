@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="按钮1" id="but">
+    <input type="button" value="按钮2" id="but1">
+    <div id="box">雨一直下个不停</div>
+</body>
+<script>
+    let oBut = document.getElementById("but");
+    let oBut1 = document.getElementById("but1");
+    let box = document.getElementById("box");
+    class Button{
+        constructor(size){
+            this.size = size;
+        }
+    }
+    class button1 extends Button{
+        constructor(bg){
+            super();
+            this.bg = bg;
+        }
+    }
+    function size(min,max) {
+        return parseInt(Math.random()*(max-min)+min);
+    }
+    function color() {
+        let rgb = "rgb("+Math.floor(Math.random()*255)+","+
+                        Math.floor(Math.random()*255)+","+
+                        Math.floor(Math.random()*255)+")";
+        return rgb;
+    }
+    oBut.onclick=function () {
+        let but1 = new button1(color());
+        box.style.background=but1.bg;
+    }
+    oBut1.onclick=function () {
+        let but = new Button(size(1,200));
+        box.style.fontSize = but.size+"px";
+    }
+</script>
+</html>

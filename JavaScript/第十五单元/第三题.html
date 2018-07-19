@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let teacher = {name:"jack",age:32,specialty:"计算机"};
+    let object1 = Object.create(teacher);
+    for (let val in object1) {
+        document.write("属性："+val);
+        document.write("属性值："+teacher[val]);
+    }
+</script>
+</html>

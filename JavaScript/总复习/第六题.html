@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+            width: 700px;
+            text-align: center;
+            margin-top: 15px;
+        }
+        table thead{
+            font-size: 20px;
+            font-weight: 800;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="全部删除" onclick="editAll()">
+    <input type="button" value="选中删除" onclick="editAll()">
+    <br/><br/>
+    <input type="text" placeholder="请输入关键字">
+    <input type="button" value="搜索">
+    <table id="table">
+        <thead>
+            <tr>
+                <td><input type="checkbox" id="checkbox">全选</td>
+                <td>商品</td>
+                <td>价格</td>
+                <td>产地</td>
+                <td>品牌</td>
+                <td>操作</td>
+            </tr>
+        </thead>
+        <tr>
+            <td><input type="checkbox" name="hobby"></td>
+            <td>香蕉</td>
+            <td>20元/kg</td>
+            <td>海南</td>
+            <td>宝强牌</td>
+            <td><button>删除</button></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="hobby"></td>
+            <td>香蕉</td>
+            <td>20元/kg</td>
+            <td>海南</td>
+            <td>宝强牌</td>
+            <td><button>删除</button></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="hobby"></td>
+            <td>葡萄</td>
+            <td>40元/kg</td>
+            <td>海南</td>
+            <td>步云牌</td>
+            <td><button>删除</button></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="hobby"></td>
+            <td>芒果</td>
+            <td>35元/kg</td>
+            <td>海南</td>
+            <td>光荣牌</td>
+            <td><button>删除</button></td>
+        </tr>
+    </table>
+</body>
+<script>
+    let table = document.getElementById("table");
+    let hobby = document.getElementsByName("hobby");
+    let checkbox = document.getElementById("checkbox");
+    let checked = false;
+    checkbox.onclick=()=>{
+        checked =! checked;
+        hobby.forEach((val)=>{
+            val.checked = checked;
+        });
+    }
+    function editAll() {
+        for (let i=0;i<hobby.length;i++){
+            if (hobby[i].checked==true) {
+                let tr = hobby[i].parentNode.parentNode;
+                table.children[1].removeChild(tr);
+                i--;
+                hobby.length--;
+            }
+        }
+    }
+</script>
+</html>

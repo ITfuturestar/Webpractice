@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            cursor: pointer;
+            width: 200px;
+            height: 30px;
+            background: #2e6da4;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div>昨天是阴天</div>
+    <div>果然今天就下雨了</div>
+    <div>明天应该是个好天气</div>
+</body>
+<script>
+    let aDiv = document.getElementsByTagName("div");
+    for (let i=0;i<aDiv.length;i++) {
+        aDiv[i].onclick=function () {
+            document.write(aDiv[i].innerHTML)
+            //alert(aDiv[i].innerHTML);
+        }
+    }
+</script>
+</html>

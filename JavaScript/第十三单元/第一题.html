@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="jquery.js">
+    <style>
+        .box{
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+            text-align: center;
+            border-radius: 20%;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .box:hover:before{
+            top: 50%;
+        }
+        .box:hover .box-in{
+            visibility: hidden;
+        }
+        .box:before{
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            transform: translate(-50%,-50%);
+            content: '返回顶部';
+            width: 40px;
+            color: peru;
+            font-weight: bold;
+        }
+        .box-in{
+            visibility: visible;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid black;
+            border-color: white transparent transparent white;
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body style="height: 2000px;">
+    <!--<div id="topAnchor"></div>-->
+    <!--<div style="position: fixed;right: 0;bottom: 0;"><a href="#topAnchor" >回到顶部</a></div>-->
+    <!--<button id="test" style="position: fixed;right: 0;bottom: 0;">返回顶部</button>-->
+    <div id="box" class="box">返回顶部</div>
+    <div class="box-in"></div>
+</body>
+<script>
+    // test.onclick=()=>{
+    //     document.body.scrollTop=document.documentElement.scrollTop=0;
+    // }
+    let timer = null;
+    box.onclick =()=>{
+        cancelAnimationFrame(timer);
+        timer=requestAnimationFrame(function fn() {
+            let oTop = document.body.scrollTop || document.documentElement.scrollTop;
+            if (oTop>0){
+                document.body.scrollTop=document.documentElement.scrollTop=oTop-50;
+                timer = requestAnimationFrame(fn);
+            }else {
+                cancelAnimationFrame(timer);
+            }
+        })
+    }
+</script>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var num = prompt("请输入一个数字","");
+    function fun(num) {
+        var a = parseInt(num);
+        switch (a % 2) {
+            case 0:
+                document.write("是偶数");
+                break;
+            case 1:
+                document.write("是奇数");
+                break;
+        }
+    }
+    fun(num)
+</script>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+            width: 300px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    姓名：<input type="text" id="name">
+    联系方式：<input type="text" id="phone">
+    <input type="button" value="添加用户" id="but">
+    <table border="1px" id="table">
+        <tr>
+            <td>姓名</td>
+            <td>联系方式</td>
+            <td>操作</td>
+        </tr>
+    </table>
+</body>
+<script>
+    let name = document.getElementById("name");
+    let phone = document.getElementById("phone");
+    let but = document.getElementById("but");
+    let table = document.getElementById("table");
+    but.onclick=()=>{
+        let tr = document.createElement("tr");
+        for (let i=0;i<table.children[0].children[0].children.length;i++){
+            let td = document.createElement("td");
+            switch (i){
+                case 0:
+                    td.innerHTML=name.value;
+                    break;
+                case 1:
+                    td.innerHTML=phone.value;
+                    break;
+                case 2:
+                    td.innerHTML="<input type='button' value='删除' class='edit'>";
+                    break;
+            }
+            tr.appendChild(td);
+        }
+        table.appendChild(tr);
+        edit();
+    }
+
+    edit=() =>{
+        let edit = document.getElementsByClassName("edit");
+        for (let i=0;i<edit.length;i++){
+            edit[i].onclick=(ev)=>{
+                let Event = ev || event;
+                let target = Event.target || Event.srcElement;
+                table.removeChild(target.parentNode.parentNode);
+            }
+        }
+    }
+</script>
+</html>

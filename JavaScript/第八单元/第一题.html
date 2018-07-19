@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 600px;
+            height: 400px;
+            background: url("images/index.jpg");
+        }
+        .but{
+            width: 120px;
+            height: 40px;
+            background: #FFA500;
+            border: none;
+            border-radius: 5px;
+            margin-left: 20px;
+            margin-top: 5px;
+        }
+        .text{
+            margin-left: 20px;
+        }
+        table{
+            width: 500px;
+            text-align: center;
+            color: #FF480E;
+            font-size: 18px;
+            margin-top: 15px;
+            margin-left: 20px;
+        }
+        .td{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <input type="button" value="全部删除" onclick="checkall()" class="but">
+        <input type="button" value="选中删除" onclick="checkall()" class="but"><br/><br/>
+        <input type="text" placeholder="请输入关键字" class="text">
+        <input type="button" value="搜索" onclick="search()">
+        <table border="1px" cellspacing="0" id="table">
+            <tr>
+                <td><label><input type="checkbox" onclick="checkAll()">全选</label></td>
+                <td>序列号</td>
+                <td>商品</td>
+                <td>价格</td>
+                <td>产地</td>
+                <td>品牌</td>
+                <td>操作</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="hobby"></td>
+                <td>1</td>
+                <td>苹果</td>
+                <td>20元</td>
+                <td>海南</td>
+                <td>000</td>
+                <td class="td"><span>删除</span></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="hobby"></td>
+                <td>2</td>
+                <td>香蕉</td>
+                <td>20元</td>
+                <td>海南</td>
+                <td>000</td>
+                <td class="td"><span>删除</span></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="hobby"></td>
+                <td>3</td>
+                <td>樱桃</td>
+                <td>20元</td>
+                <td>海南</td>
+                <td>000</td>
+                <td class="td"><span>删除</span></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="hobby"></td>
+                <td>4</td>
+                <td>西瓜</td>
+                <td>20元</td>
+                <td>海南</td>
+                <td>000</td>
+                <td class="td"><span>删除</span></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="hobby"></td>
+                <td>5</td>
+                <td>菠萝</td>
+                <td>20元</td>
+                <td>海南</td>
+                <td>000</td>
+                <td class="td"><span>删除</span></td>
+            </tr>
+        </table>
+    </div>
+</body>
+<script>
+    let hobby = document.getElementsByName("hobby");
+    let table = document.getElementById("table");
+    let span = document.getElementsByTagName("span");
+    let tr = document.getElementsByTagName("tr");
+    let text = document.getElementsByClassName("text")[0];
+    //全选/全不选
+    let checked = false;
+    checkAll = () =>{
+        checked =! checked;
+        hobby.forEach((val)=>{
+            val.checked = checked;
+        });
+    }
+    //全部删除
+    checkall = () =>{
+        for (let i=0;i<hobby.length;i++) {
+            if (hobby[i].checked==true) {
+                let tab = hobby[i].parentNode.parentNode;
+                table.children[0].removeChild(tab);
+                i--;
+                hobby.length--;
+            }
+        }
+    }
+    //点击一个删除一个
+    for (let i=0;i<span.length;i++){
+        edit = span[i].onclick=(ev)=> {
+            let Event = ev || event;
+            let target = Event.target || Event.srcElement;
+            let tr = target.parentNode.parentNode;
+            tr.parentNode.removeChild(tr);
+        }
+    }
+    //搜索
+     search = () => {
+         for (let i=1;i<tr.length;i++) {
+             if (tr[i].innerText.includes(text.value)) {
+                 tr[i].style.background = "#68C24A";
+             }
+         }
+    }
+    //移动到每一行变色
+    for (let i=0;i<tr.length;i++){
+        tr[i].onmousemove=()=>{
+            tr[i].style.background = "#68C24A";
+        }
+    }
+    for (let i=0;i<tr.length;i++){
+        tr[i].onmouseout=()=> {
+            tr[i].style.background = "";
+        }
+    }
+</script>
+</html>

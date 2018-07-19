@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="text" id="text"><br/>
+    <input type="text" id="text1">
+</body>
+<script>
+    let text = document.getElementById("text");
+    let text1 = document.getElementById("text1");
+    text.onkeydown=function (ev) {
+        let Event = ev || event;
+        if (text.value == "") return;
+        if (Event.keyCode == 13) {
+            text1.value = text.value;
+            text.value = "";
+        }
+    }
+</script>
+</html>

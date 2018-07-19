@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="code_box">你好啊....</div>
+</body>
+<script>
+    let code_box = document.getElementById("code_box");
+    function randomColor() {　　
+        var colorStr = Math.floor( Math.random() * 0xFFFFFF ).toString( 16 ).toUpperCase();　　
+        return "#" + "000000".substring( 0, 6 - colorStr ) + colorStr;
+    }
+    code_box.style.color = randomColor();
+</script>
+</html>

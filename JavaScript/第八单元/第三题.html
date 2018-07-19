@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input{
+            width: 100px;
+            height: 30px;
+            background: #FF0000;
+            font-size: 20px;
+            border: none;
+            border-radius: 5px  ;
+        }
+        .box{
+            margin-top: 20px;
+            width: 100px;
+            border: 1px solid #F12F26;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="显示" onclick="xianshi()">
+    <input type="button" value="全部删除">
+    <input type="button" value="选中删除">
+    <input type="button" value="全选">
+    <div class="box"></div>
+</body>
+<script>
+    let arr = [{img:"images/cart.ipg",name:"夜空",money:"20元"},
+        {img:"images/index.ipg",name:"夜空",money:"20元"},
+        {img:"images/xk.ipg",name:"夜空",money:"20元"}];
+    let box = document.getElementsByName("box");
+    //点击显示
+    xianshi = () =>{
+        for (let i=0;i<arr.length;i++){
+            let div = document.createElement("div");
+            let img = document.createElement("img");
+            img.src=arr[i];
+            div.appendChild(img)
+            box.appendChild(div)
+        }
+    }
+</script>
+</html>

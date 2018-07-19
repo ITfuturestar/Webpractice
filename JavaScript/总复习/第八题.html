@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #table td{
+            width: 80px;
+            height: 80px;
+            text-align: center;
+        }
+        #table1{
+            width: 400px;
+            text-align: center;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    姓名：<input type="text" id="name">
+    年龄：<input type="text" id="age">
+    手机号：<input type="text" id="phone">
+    <input type="button" value="提交" id="tijiao">
+    <table border="1px" cellspacing="0" id="table">
+        <tr>
+            <td>一等奖</td>
+            <td>八等奖</td>
+            <td>七等奖</td>
+        </tr>
+        <tr>
+            <td>二等奖</td>
+            <td style="background: red;cursor: pointer;" id="but">抽奖</td>
+            <td>六等奖</td>
+        </tr>
+        <tr>
+            <td>三等奖</td>
+            <td>四等奖</td>
+            <td>五等奖</td>
+        </tr>
+    </table>
+    <table border="1px" cellspacing="0" id="table1">
+        <tr>
+            <td>姓名</td>
+            <td>年龄</td>
+            <td>电话</td>
+            <td>中奖</td>
+        </tr>
+    </table>
+</body>
+<script>
+    let but =document.getElementById("but");
+    let table = document.getElementById("table");
+    let table1 = document.getElementById("table1");
+    let atd = table.getElementsByTagName("td");
+    let name = document.getElementById("name");
+    let age = document.getElementById("age");
+    let phone = document.getElementById("phone");
+    let tijiao = document.getElementById("tijiao");
+    let s = table.querySelectorAll("td");
+    let arr = [s[0],s[1],s[2],s[5],s[8],s[7],s[6],s[3]];
+
+
+
+    let timer = null;
+    let otd;
+    let j = 0;
+    but.onclick=()=>{
+        timeout();
+        clearInterval(timer);
+        interval();
+    }
+    function interval() {
+        timer = setInterval(function () {
+            for (let i=0;i<arr.length;i++){
+                arr[i].style.backgroundColor="#fff";
+            }
+            arr[j].style.backgroundColor="blue";
+            otd = arr[j].innerHTML;
+            j++;
+            if (j>=arr.length) {
+                j=0;
+            }
+        },100);
+    }
+
+    function timeout() {
+        let rand = parseInt(Math.random()*(2000-1000)+1000);
+        let t = setTimeout(function () {
+            clearInterval(timer);
+        },rand);
+    }
+
+
+
+    tijiao.onclick=()=>{
+        let tr = document.createElement("tr");
+        for (let i=0;i<table1.children[0].children[0].children.length;i++){
+            let td = document.createElement("td");
+            switch (i){
+                case 0:
+                    td.innerHTML = name.value;
+                    break;
+                case 1:
+                    td.innerHTML = age.value;
+                    break;
+                case 2:
+                    td.innerHTML = phone.value;
+                    break;
+                case 3:
+                    td.innerHTML = otd;
+                    break;
+            }
+            tr.appendChild(td);
+        }
+        table1.appendChild(tr);
+    }
+</script>
+</html>

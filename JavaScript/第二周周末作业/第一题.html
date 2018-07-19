@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="code_box"></div>
+</body>
+<script>
+    let code_box = document.getElementById("code_box");
+    function codeWord() {
+        let code1 = "";
+        let codeLenght1 = 4;
+        let random1 = [0,1,2,3,4,5,6,7,8,9,'A', 'B', 'C', 'D', 'E','F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+            'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+            'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p',
+            'q','r','s','t','u','v','w','x','y','z'];
+        for (let i=0;i<codeLenght1;i++){
+            let index1 = Math.floor(Math.random()*random1.length);
+            code1 += random1[index1];
+        }
+        code_box.innerHTML=code1;
+    }
+    codeWord();
+</script>
+</html>

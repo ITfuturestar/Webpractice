@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background: #000;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+<script>
+    let box = document.body.children[0];
+    document.onmousemove=(ev)=>{
+        let Event = ev || event;
+        let scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft;
+        let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        box.style.left = Event.clientX + scrollLeft +"px";
+        box.style.top = Event.clientY + scrollTop + "px";
+    }
+</script>
+</html>

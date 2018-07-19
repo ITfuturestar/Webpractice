@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<span></span>
+</body>
+<script>
+    let v = document.getElementsByTagName("span")[0];
+    setInterval(function () {
+        v.innerHTML=`${parseInt(10+Math.random()*(1000-10))}`;
+    },1000)
+</script>
+</html>

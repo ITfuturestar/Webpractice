@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+            width: 300px;
+            text-align: center;
+            margin-top: 15px;
+        }
+        #otd{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    姓名：<input type="text" id="name"><br/>
+    年龄：<input type="text" id="age"><br/><br/>
+    <input type="button" value="添加一个学生" id="insert">
+    <input type="button" value="删除" id="edit">
+    <table border="1px" cellspacing="0">
+        <tr>
+            <td><span id="otd">全选</span></td>
+            <td>姓名</td>
+            <td>年龄</td>
+        </tr>
+    </table>
+</body>
+<script>
+    let name = document.getElementById("name");
+    let age = document.getElementById("age");
+    let insert = document.getElementById("insert");
+    let edit = document.getElementById("edit");
+    let table = document.getElementsByTagName("table")[0];
+    let check = document.getElementsByName("check");
+    let otd = document.getElementById("otd");
+    insert.onclick=function () {
+        let tr = document.createElement("tr");
+        let td = document.createElement("td");
+        let td1 = document.createElement("td");
+        let td2 = document.createElement("td");
+        tr.appendChild(td);
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        table.appendChild(tr);
+        td.innerHTML = "<input type='checkbox' name='check'>";
+        td1.innerHTML = name.value;
+        td2.innerHTML = age.value;
+    }
+    otd.onclick=function(){
+        for (let i=0;i<check.length;i++) {
+            check[i].checked=true;
+        }
+    }
+    edit.onclick=function () {
+        for (let i = 0; i <check.length; i++) {
+            if (check[i].checked==true) {
+                let c = check[i].parentNode.parentNode;
+                table.removeChild(c);
+                i--;
+                check.length--;
+            }
+
+        }
+    }
+</script>
+</html>

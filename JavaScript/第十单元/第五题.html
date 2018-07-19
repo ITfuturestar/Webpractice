@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="按钮">
+    <div></div>
+</body>
+<script>
+    let but = document.body.children[0];
+    let box = document.body.children[1];
+    but.onclick=()=>{
+        let color = "rgb("+Math.floor(Math.random()*255)+","+
+                    Math.floor(Math.random()*255)+","+
+                    Math.floor(Math.random()*255)+")";
+        box.style.background = color;
+    }
+</script>
+</html>

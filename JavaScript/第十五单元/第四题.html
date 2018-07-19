@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // function teacher() {
+    //     this.name="jack";
+    //     this.age=18;
+    //     this.specialty="计算机";
+    //     this.work=function () {
+    //         document.write("授课");
+    //     }
+    // }
+    // let child = new teacher();
+    class Teacher{
+        constructor(name,age){
+            this.name= name;
+            this.age = age;
+        }
+    }
+    let t = new Teacher();
+
+    //检查属性(有：true   无：false)
+    //console.log(child.hasOwnProperty("name"));
+    //增加属性
+    // Object.prototype.sex = "男";
+    // for (let val in child){
+    //     document.write(val+" "+child[val]+"<br>")
+    // }
+    //删除属性
+    // delete child.sex;
+    // console.log("sex属性是否存在："+child.hasOwnProperty("sex"));
+    //修改属性
+    t.age="money";
+    console.log(t.hasOwnProperty("money"))
+    for (let val in t) {
+        document.write(t[val]+"<br/>")
+
+    }
+</script>
+</html>

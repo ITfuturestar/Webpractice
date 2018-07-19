@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <span id="time"></span>
+</body>
+<script>
+    let date =+ new Date(2019,2,5);
+    function trime() {
+        let date1 =+ new Date();
+        let s = parseInt((date-date1)/1000);
+        let d = parseInt(s/86400);
+            s%=86400;
+        let h = parseInt(s/3600);
+            s%=3600;
+        let m = parseInt(s/60);
+            s%=60;
+        document.getElementById("time").innerHTML= `距离春节还有${d}天${h}小时${m}分${s}秒`;
+    }
+    setInterval(trime,1000);
+</script>
+</html>

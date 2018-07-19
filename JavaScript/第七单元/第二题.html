@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="text" id="name">
+    <input type="button" value="添加一条信息" onclick="insert()">
+    <ul id="ul"></ul>
+</body>
+<script>
+    let name = document.getElementById("name");
+    let ul = document.getElementById("ul");
+    function insert() {
+        if (name.value == "") return;
+        let li = document.createElement("li");
+        li.innerHTML=name.value;
+        ul.insertBefore(li,ul.childNodes[0])
+    }
+</script>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #box{
+            width: 350px;
+            height: 250px;
+            background: red;
+            overflow: hidden;
+            position: relative;
+        }
+        #drag{
+            width: 50px;
+            height: 50px;
+            background: blue;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <div id="drag"></div>
+</body>
+<script>
+    window.onload=()=>{
+        let obox = document.getElementById("box");
+        let odrag = document.getElementById("drag");
+        let isDrag = false;//同于标识div是否可以被拖动
+        let x,y;//用于存放鼠标指针距离要拖动div的左边缘和上边缘的距离
+        odrag.onmousedown = down;//为odrag注册onmousedown事件处理函数
+        document.onmousemove = move;//为document对象注册onmousemove事件处理函数，之所以没有直接给odrag注册，是因为利用事件冒泡可以防止鼠标滑出div导致拖动失效现象
+        document.onmouseup = up;//为document对象注册onmouseup事件处理函数，同样利用了冒泡事件
+        function down(ev){//onmousedown事件处理函数，ev为事件对象
+            let Event = window.event || ev;//处理兼容
+            x = Event.clientX - this.offsetLeft;//获取鼠标指针距离div左边缘的距离
+            y = Event.clientY - this.offsetTop;//获取鼠标指针距离div上边缘的距离
+            this.style.cursor = "pointer";//将鼠标指针设置为手状型
+            isDrag = true;//将isDrag值设置为true，也就是可以拖动
+        }
+        function move(ev){//onmousemove事件处理函数，ev为事件对象
+            if (isDrag){//判断是否可以拖动
+                let Event = window.event || ev;
+                odrag.style.left = (Event.clientX-x)+"px";//设置div的left属性值
+                odrag.style.top = (Event.clientY-y)+"px";//设置div的top属性值
+                if (parseInt(odrag.style.left)<0) {//如果小于0，说明超出左边缘
+                    odrag.style.left = 0;//将left属性值设置为0，那么恰好在父元素的左边缘
+                }else if (parseInt(odrag.style.left)>obox.clientWidth-odrag.clientWidth){//用于判断odrag的div的left属性值是否大于父元素的宽度减去odrag的div的宽度，也就是说是否超过了父元素的右边界
+                    odrag.style.left = (obox.clientWidth-odrag.clientWidth)+"px";//将odrag的div的left属性值为obox.clientWidth-odrag.clientWidth，也就是说是否超过了父元素的右边界
+                }
+                if (parseInt(odrag.style.top)<0) {
+                    odrag.style.top = 0;
+                }else if (parseInt(odrag.style.top)>obox.clientHeight-odrag.clientHeight) {
+                    odrag.style.top = (obox.clientHeight-odrag.clientHeight)+"px";
+                }
+            }
+        }
+        function up(){//onmouseup事件处理函数
+            isDrag =false;//设置为不能拖动
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //通过字面量方式创建
+    // let teacher = {
+    //     name: "jack",
+    //     age: "23",
+    //     specialty: "计算机",
+    //     work:function () {
+    //         document.write("授课");
+    //     }
+    // }
+    // teacher.work();
+
+    //通过构造函数创建
+    // function teacher() {
+    //     this.name="jack";
+    //     this.age=18;
+    //     this.specialty="计算机";
+    //     this.work=function () {
+    //         document.write("授课");
+    //     }
+    // }
+    // let child = new teacher();
+    // child.work();
+
+    //通过object构造器new一个对象
+    // let teacher = new Object();
+    // teacher.name="jack";
+    // teacher.age="25";
+    // teacher.specialty="计算机";
+    // teacher.work=function () {
+    //     document.write("授课");
+    // }
+    // teacher.work();
+
+    //通过object.create放式创建
+    let teacher = {name:"jack",age:32,specialty:"计算机",work:function () {
+            document.write("授课");
+        }};
+    let object1 = Object.create(teacher);
+    object1.work();
+</script>
+</html>

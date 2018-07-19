@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        li{
+            float: left;
+            margin-right: 10px;
+            list-style: none;
+        }
+        .box1{
+            width: 80px;
+            height: 80px;
+            background: #7D7BC2;
+        }
+        .box2{
+            width: 80px;
+            height: 80px;
+            background: #25A808;
+        }
+        .box3{
+            width: 80px;
+            height: 80px;
+            background: #3962C5;
+        }
+        .box4{
+            width: 80px;
+            height: 80px;
+            background: #A5C920;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="box1">1</li>
+        <li class="box2">1</li>
+        <li class="box3">1</li>
+        <li class="box4">1</li>
+    </ul>
+
+</body>
+<script>
+    window.onload=function () {
+        let abox = document.getElementsByTagName("ul")[0];
+        let ali = document.getElementsByTagName("li");
+        abox.onclick=function (ev) {
+            let Event = ev || event;
+            let target = Event.target || Event.srcElement;
+            if (target.nodeName === "LI") {
+                for (let i=0;i<ali.length;i++) {
+                    ali[i].style.background = ali[i].currentStyle ? ali[i].currentStyle["background"] :
+                        getComputedStyle(ali[i],null)["background"]
+                }
+                target.style.background="#1E4E35";
+            }
+        }
+    }
+
+</script>
+</html>

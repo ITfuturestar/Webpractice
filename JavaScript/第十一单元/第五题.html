@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+<script>
+    let box = document.body.children[0];
+    box.onmousedown=(ev)=>{
+        let Event = ev || event;
+        let l = Event.clientX - box.offsetLeft;
+        let r = Event.clientY - box.offsetTop;
+        if (typeof box.setCapture!='undefined') {
+            box.setCapture();
+        }
+        document.onmousemove=(ev)=>{
+            let Event = ev || event;
+            let left = Event.clientX - l;
+            let top = Event.clientY - r;
+            if (left < 0){
+                left = 0;
+            } else if (left > window.innerWidth-box.offsetWidth) {
+                left = window.innerWidth-box.offsetWidth;
+            }
+            if (top < 0){
+                top = 0;
+            } else if (top > window.innerHeight-box.offsetHeight){
+                top = window.innerHeight-box.offsetHeight;
+            }
+            box.style.left = left+"px";
+            box.style.top = top+"px";
+        }
+        //松开鼠标，将绑定的事件解除
+        document.onmouseup=()=>{
+            document.onmousemove=null;
+            document.onmouseup=null;
+        }
+    }
+
+</script>
+</html>

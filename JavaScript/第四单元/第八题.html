@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<span id="time"></span>
+</body>
+<script>
+    let date = new Date(1970,1,1);
+    function trime() {
+        let date1 =+ new Date();
+        let s = parseInt((date1-date)/1000);
+        document.getElementById("time").innerHTML=`现在距离1970年1月1日午夜的毫秒数为${s}秒`;
+    }
+    trime();
+</script>
+</html>

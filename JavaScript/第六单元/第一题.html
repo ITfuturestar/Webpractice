@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input{
+            width: 60px;
+            height: 30px;
+            margin-left: 10px;
+            align-items: center;
+            text-align: center;
+            font-size: 16px;
+        }
+        span{
+            font-size: 20px;
+            display: inline-block;
+            margin-left: 10px;
+        }
+        input[type="button"]{
+            width: 80px;
+            height: 35px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="input1">
+    <span>+</span>
+    <input type="text" id="input2">
+    <span>=</span>
+    <input type="text" id="input3">
+    <input type="button" value="计算" id="but">
+</body>
+<script>
+    window.onload = function(){
+        var inputs = document.getElementsByTagName("input");
+        for(i=0;i<inputs.length;i++){
+            inputs[i].onblur = function(){
+                var add1 = document.getElementById("input1").value;
+                var add2 = document.getElementById("input2").value;
+                let but = document.getElementById("but");
+                but.onclick=function(){
+                    document.getElementById("input3").value = add1*1 + add2*1;
+                }
+
+            }
+        }
+    }
+</script>
+</html>

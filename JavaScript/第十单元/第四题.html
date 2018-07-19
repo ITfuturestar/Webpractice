@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{
+            width: 90px;
+            height: 90px;
+            background: #8DE36A ;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <button>边框1</button>
+        <button>颜色2</button>
+        <button>宽3</button>
+        <button>高4</button>
+        <div id="box">好困啊.....</div>
+    </div>
+</body>
+<script>
+    function getStyle(elem,attr,val){
+        elem.style[attr] = val;
+    }
+    window.onload = function(){
+        var oDiv = document.getElementById("box");
+        var oBtn = document.getElementsByTagName("button");
+        var Attr = ["border","color","width","height"];
+        var oVal = ["1px solid red","red","200px","150px"]
+        for(var i = 0;i<oBtn.length;i++){
+            oBtn[i].index = i;
+            oBtn[i].onclick = function(){
+                oDiv.style.cssText = "";
+                getStyle(oDiv,Attr[this.index],oVal[this.index])
+            }
+        }
+    }
+</script>
+</html>

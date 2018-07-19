@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 700px;
+            background: url("images/xk.jpg");
+            color: red;
+        }
+        h3{
+            color: #FF031C;
+            text-align: center;
+        }
+        table{
+            width: 650px;
+            text-align: center;
+        }
+        .td{
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h3>信息统计</h3>
+        姓名<input type="text" id="name"><br/><br/>
+        性别<input type="text" id="sex"><br/><br/>
+        <input type="button" value="添加" onclick="insert()">
+        <input type="button" value="全部删除" onclick="checkall()">
+        <input type="button" value="选中删除" onclick="checkall()">
+        <table border="1px" cellspacing="0">
+            <tr>
+                <td><label><input type="checkbox" onclick="checkAll()">全选</label></td>
+                <td>序列号</td>
+                <td>姓名</td>
+                <td>性别</td>
+                <td>操作</td>
+                <td  class="td">时间</td>
+            </tr>
+        </table>
+    </div>
+</body>
+<script>
+    let name = document.getElementById("name");
+    let sex = document.getElementById("sex");
+    let table = document.getElementsByTagName("table")[0];
+    let edit = document.getElementsByClassName("edit");
+    let hobby = document.getElementsByName("hobby");
+    //点击添加
+    insert = () =>{
+        let tr = document.createElement("tr");
+        for (let i=0;i<table.children[0].children[0].children.length;i++){
+            let td1 = document.createElement("td");
+            switch (i) {
+                case 0:
+                    td1.innerHTML="<input type='checkbox' name='hobby'>";
+                    break;
+                case 1:
+                    if (table.children[0].children.length==1) {
+                        td1.innerHTML=1;
+                    }else {
+                        td1.innerHTML=parseInt(table.children[0].children[table.children[0].children.length-1].children[1].innerHTML)+1;
+                    }
+                    break;
+                case 2:
+                    td1.innerHTML=name.value;
+                    break;
+                case 3:
+                    td1.innerHTML=sex.value;
+                    break;
+                case 4:
+                    td1.innerHTML="<input type='button' value='删除' class='edit'>"
+                    break;
+                case 5:
+                    td1.innerHTML=new Date().toLocaleString();
+                    break;
+            }
+            tr.appendChild(td1);
+        }
+        if (table.children[0].children.length%2==0) {
+            tr.style.background="#FFC0CB";
+        }else {
+            tr.style.background="#00FF00";
+        }
+
+        //点击删除
+        for (let i=0;i<edit.length;i++) {
+            edit[i].onclick = (ev) =>{
+                let Event = ev || event;
+                let target = Event.target || Event.srcElement;
+                let tr = target.parentNode.parentNode;
+                tr.parentNode.removeChild(tr);
+            }
+        }
+    }
+    //全部删除
+    checkall = () =>{
+        for (let i=0;i<hobby.length;i++){
+            if (hobby[i].checked==true) {
+                let tr = hobby[i].parentNode.parentNode;
+                table.children[0].removeChild(tr);
+                i--;
+                hobby.length--;
+            }
+        }
+    }
+    //全选
+    let checked = false;
+    checkAll = () =>{
+        checked = !checked;
+        hobby.forEach((val)=>{
+            val.checked=checked;
+        });
+    }
+</script>
+</html>

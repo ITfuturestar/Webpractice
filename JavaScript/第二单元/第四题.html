@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function num(arr) {
+        let sum = 0;
+        for (let i=0;i<arr.length;i++){
+            if(arr[i]%6 == 0){
+                sum +=arr[i];
+            }
+        }
+        document.write(sum)
+    }
+    let arr = [2,9,6,12,24,8,36,5];
+    num(arr)
+</script>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="button" value="按钮" onclick="but()">
+</body>
+<script>
+    function color() {
+        let rgb = "rgb("+Math.floor(Math.random()*255)+","
+                    +Math.floor(Math.random()*255)+","
+                    +Math.floor(Math.random()*255)+")";
+        return rgb;
+    }
+    function but(){
+        document.body.style.background=color();
+        setInterval(but,1000);
+    }
+
+</script>
+</html>

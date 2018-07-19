@@ -1,0 +1,242 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    padding: 0;
+    margin: 0;
+}
+.clear{
+    clear: both;
+}
+.w1{
+    margin-right: auto;
+    margin-left: auto;
+    width: 1000px;
+}
+.w1-logo{
+    display: inline;
+    float: left;
+}
+.logo-link{
+    background: url("images/hash.png");
+    background-position: -300px -57px;
+    width: 125px;
+    height: 100px;
+    display: inline-block;
+    vertical-align: top;
+    line-height: 500px;
+    overflow: hidden;
+}
+.w1-right{
+    background: url("images/hash.png");
+    width: 296px;
+    height: 100px;
+    float: right;
+}
+.content {
+    /*background-image: url("images/wph.jpg");*/
+    width: 100%;
+    height: 600px;
+    background-position: -285px 0px;
+}
+.register{
+    width: 1000px;
+    margin-right: auto;
+    margin-left: auto;
+    min-height: 550px;
+    padding: 50px 20px;
+}
+.c-register{
+    width: 360px;
+    float: right;
+    background: #fff;
+    border-radius: 4px;
+}
+.c1{
+    padding-left: 30px;
+    padding-right: 30px;
+    line-height: 50px;
+    border-bottom: 1px solid #ccc;
+}
+.c1-login{
+    float: right;
+    font-size: 14px;
+}
+.c1-login a{
+    color: #F10180;
+    text-decoration: none;
+}
+.c1-register{
+    margin-right: 30px;
+    margin-left: 30px;
+}
+.c-register-body {
+    padding: 30px;
+}
+#reg-form-wrapper {
+    text-align: left;
+}
+.clearfix::after {
+    content: " ";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.clearfix::after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.ui-form-item-group {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    transition: none !important;
+    opacity: 1 !important;
+}
+.control-group .ui-input {
+    padding-left: 40px;
+    width: 248px;
+    height: 40px;
+    line-height: 32;
+}
+.ui-input, .ui-textarea{
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #b2b2b2;
+    border-radius: 3px;
+    outline: 0;
+}
+.has-form-item-icon .c-icon-form {
+    position: absolute;
+    top: 11px;
+    left: 11px;
+    z-index: 1;
+}
+.c-icon-mobile {
+    background-image: url("images/hash.png");
+    background-position: -300px -161px;
+    width: 20px;
+    height: 20px;
+}
+.c-icon {
+    display: inline-block;
+    vertical-align: top;
+}
+.u-input-tip {
+    font-size: 12px;
+    color: #666;
+    position: relative;
+    min-height: 19px;
+    max-height: 36px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    margin-top: 2px;
+    margin-bottom: 5px;
+    line-height: 1.5;
+    display: block;
+}
+.control-group .ipt-verify-code {
+    width: 106px;
+    margin-right: 10px;
+}
+.control-group .btn-verify-code {
+    padding: 0 12px;
+    width: 90px;
+    font-size: 14px;
+    height: 40px;
+    line-height: 44px;
+}
+.ui-btn-disable{
+    border: 1px solid #d0d0d0;
+    color: #999;
+    background: #d0d0d0;
+    cursor: not-allowed;
+}
+.c-icon-captcha {
+    background-image: url("images/hash.png");
+    background-position: -324px -161px;
+    width: 20px;
+    height: 20px;
+}
+.c-icon-password {
+    background-image: url("images/hash.png");
+    background-position: -372px -161px;
+    width: 20px;
+    height: 20px;
+}
+.register-form .ui-checkbox {
+    vertical-align: top;
+    width: 19px;
+}
+.register-form .mr0 {
+    margin-right: 0;
+}
+:root .ui-checkbox-normal {
+    display: none;
+}
+.ui-checkbox-normal {
+    vertical-align: text-top;
+}
+:root .ui-checkbox-normal:checked + .ui-checkbox-simulation {
+    background-position: -24px 0;
+}
+:root .ui-checkbox-simulation {
+    display: inline-block;
+    user-select: none;
+    background-image: url("images/sprite.png");
+    background-position: -48px 0;
+    width: 19px;
+    height: 16px;
+}
+.control-group .u-provision-txt {
+    vertical-align: text-top;
+    font-size: 12px;
+    display: inline-block;
+    width: 276px;
+    line-height: 1.5;
+}
+body .u-link {
+    color: #1d94d1;
+}
+body .u-link {
+    vertical-align: baseline;
+}
+.mb30 {
+    margin-bottom: 30px;
+}
+.reg-form-btn {
+    font-size: 16px;
+    width: 300px;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 4px;
+    display: inline-block;
+}
+.ui-btn-primary, .ui-btn1 {
+    background-color: #E5017A;
+    border: 1px solid #f10180;
+}
+.ui-btn-loading{
+    text-decoration: none;
+    font-size: 16px;
+    color: #fff;
+}
+.ui-btn-loading-before{
+    display: inline-block;
+    text-align: center;
+}
+.ui-btn-big, .ui-btn-large, .ui-btn-medium, .ui-btn-mini, .ui-btn-nor, .ui-btn-small {
+    display: inline-block;
+    border-radius: 3px;
+    text-decoration: none;
+    text-align: center;
+    vertical-align: top;
+    transition: .3s;
+    cursor: pointer;
+}

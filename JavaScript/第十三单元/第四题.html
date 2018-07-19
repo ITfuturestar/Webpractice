@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        span{
+            display: inline-block;
+            width: 80px;
+            height: 25px;
+            background: #2e6da4;
+            text-align: center;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #ccc;
+            margin-top: 20px;
+            display: none;
+            background: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <span>选项1</span>
+    <span>选项2</span>
+    <span>选项3</span>
+    <div>我是选项一</div>
+    <div>我是选项二</div>
+    <div>我是选项三</div>
+</body>
+<script>
+    let aspan = document.getElementsByTagName("span");
+    let adiv = document.getElementsByTagName("div");
+    for (let i=0;i<aspan.length;i++){
+        aspan[i].index=i;
+        aspan[i].onmousemove=function () {
+            for (let i=0;i<aspan.length;i++){
+                adiv[i].style.display="none";
+            }
+            adiv[this.index].style.display="block";
+        }
+        aspan[i].onmouseout=function(){
+            adiv[this.index].style.display="none";
+        }
+    }
+</script>
+</html>

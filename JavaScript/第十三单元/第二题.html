@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        img{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <span id="span">显示图片</span>
+    <div>
+        <img src="images/index.jpg" id="img">
+    </div>
+</body>
+<script>
+    let span = document.getElementById("span");
+    let img = document.getElementById("img");
+    span.onmousemove =()=>{
+        img.style.display="block";
+    }
+    span.onmouseout =()=>{
+        img.style.display="none";
+    }
+</script>
+</html>

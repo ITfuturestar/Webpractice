@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 500px;
+        }
+        .fl{
+            float: left;
+        }
+        .fr{
+            float: right;
+        }
+        .clear{
+            clear: both;
+        }
+        textarea{
+            max-width: 480px;
+            max-height: 100px;
+            min-width: 480px;
+            min-height: 100px;
+        }
+        .but{
+            float: right;
+            width: 70px;
+            height: 30px;
+            background: #C71585;
+            border: none;
+        }
+        .box1{
+            width: 490px;
+            border: 1px solid #ccc;
+            margin-bottom: 15px;
+        }
+        img{
+            width: 70px;
+            height: 70px;
+            margin-left: 5px;
+            margin-top: 5px;
+        }
+        p{
+            font-size: 14px;
+            float: right;
+            margin-right: 30px;
+        }
+        .span{
+            display: inline-block;
+            position: relative;
+            top: -20px;
+            font-size: 14px;
+        }
+        button{
+            float: right;
+            margin-top: 50px;
+            margin-right: -155px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <span class="fl">你想对欧珠说点啥</span>
+        <span class="fr">字符不超过20</span>
+        <div class="clear"></div>
+        <textarea id="text" maxlength="20"></textarea>
+        <input type="button" value="发表" class="but" onclick="insert()">
+        <br/><br/><br/>
+    </div>
+</body>
+<script>
+    let box = document.getElementsByClassName("box")[0];
+    let text = document.getElementById("text");
+    insert = () =>{
+        let div = document.createElement("div");
+        let img = document.createElement("img");
+        let span = document.createElement("span");
+        let p = document.createElement("p");
+        let but = document.createElement("button");
+        div.className="box1";
+        span.className="span";
+        img.src="images/index.jpg";
+        span.innerHTML=text.value;
+        p.innerHTML=new Date().toLocaleString();
+        but.innerHTML="删除";
+        div.appendChild(img);
+        div.appendChild(span);
+        div.appendChild(p);
+        div.appendChild(but);
+        box.appendChild(div)
+        but.onclick=function (ev) {
+            let Event = ev || event;
+            let target = Event.target || Event.srcElement;
+            let t = target.parentNode;
+            box.removeChild(t)
+        }
+    }
+</script>
+</html>
